@@ -1,7 +1,6 @@
 import Image from 'next/image';
 
 const metrics = [
-  { value: '3+', label: 'Internships' },
   { value: '3', label: 'Products Built' },
   { value: "May '28", label: 'Graduation' },
   { value: '● Open', label: 'PM / Strategy' },
@@ -118,7 +117,7 @@ export default function Hero() {
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(4, 1fr)',
+                gridTemplateColumns: 'repeat(3, 1fr)',
                 border: '1px solid var(--border)',
                 borderRadius: 10,
                 overflow: 'hidden',
@@ -131,7 +130,7 @@ export default function Hero() {
                   style={{
                     padding: '16px 12px',
                     textAlign: 'center',
-                    borderRight: i < 3 ? '1px solid var(--border)' : 'none',
+                    borderRight: i < 2 ? '1px solid var(--border)' : 'none',
                   }}
                 >
                   <div
@@ -139,7 +138,7 @@ export default function Hero() {
                       fontSize: 18,
                       fontWeight: 800,
                       letterSpacing: '-0.03em',
-                      color: i === 3 ? 'var(--green)' : 'var(--text)',
+                      color: i === 2 ? 'var(--green)' : 'var(--text)',
                       marginBottom: 2,
                     }}
                   >
@@ -167,7 +166,7 @@ export default function Hero() {
               }}
             >
               <Image
-                src="/vishanth.png"
+                src="/vishanth.jpg"
                 alt="Vishanth Ashok"
                 width={280}
                 height={280}

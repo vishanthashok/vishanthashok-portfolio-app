@@ -1,11 +1,12 @@
 'use client';
-import { PROJECTS } from '@/lib/data';
+import { PROJECTS, STACK_ICONS } from '@/lib/data';
+
+const DEVICON_BASE = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
 
 export default function Projects() {
   return (
     <section id="projects" style={{ padding: '80px 0' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px' }}>
-        {/* Header */}
         <div style={{ marginBottom: 40 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 6 }}>
             <span className="section-label">Venture &amp; Product Portfolio</span>
@@ -16,56 +17,71 @@ export default function Projects() {
           </h2>
         </div>
 
-        {/* Project cards */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
           {PROJECTS.map((p) => (
             <div
               key={p.name}
               className="card"
               style={{ padding: '28px 28px 24px', position: 'relative', overflow: 'hidden' }}
             >
-              {/* accent top border on hover via pseudo — use inline gradient */}
+              {/* accent top gradient line */}
               <div
                 style={{
                   position: 'absolute',
                   top: 0,
-                  left: '10%',
-                  right: '10%',
+                  left: 0,
+                  right: 0,
                   height: 1,
-                  background: `linear-gradient(90deg, transparent, ${p.accent}, transparent)`,
-                  opacity: 0.6,
+                  background: `linear-gradient(90deg, transparent 5%, ${p.accent}60 40%, ${p.accent}60 60%, transparent 95%)`,
                 }}
               />
 
-              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
                 <div style={{ flex: 1, minWidth: 200 }}>
                   {/* dot + name */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
                     <span
                       style={{
-                        width: 10,
-                        height: 10,
+                        width: 9,
+                        height: 9,
                         borderRadius: '50%',
                         background: p.accent,
-                        boxShadow: `0 0 10px ${p.accent}`,
+                        boxShadow: `0 0 12px ${p.accent}`,
                         display: 'inline-block',
                         flexShrink: 0,
                       }}
                     />
-                    <h3 style={{ fontSize: 18, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--text)', margin: 0 }}>
+                    <h3 style={{ fontSize: 17, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--text)', margin: 0 }}>
                       {p.name}
                     </h3>
                   </div>
 
-                  <p style={{ fontSize: 14, color: 'var(--muted2)', marginBottom: 16, lineHeight: 1.65, margin: '0 0 16px' }}>
+                  <p style={{ fontSize: 14, color: 'var(--muted2)', lineHeight: 1.65, margin: '0 0 16px' }}>
                     {p.description}
                   </p>
 
-                  {/* Stack tags with icon prefix placeholder */}
+                  {/* Stack tags with devicon */}
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-                    {p.stack.map((s) => (
-                      <span key={s} className="tag">{s}</span>
-                    ))}
+                    {p.stack.map((s) => {
+                      const icon = STACK_ICONS[s];
+                      return (
+                        <span key={s} className="tag">
+                          {icon && (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img
+                              src={`${DEVICON_BASE}/${icon}.svg`}
+                              alt=""
+                              width={12}
+                              height={12}
+                              loading="lazy"
+                              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                              style={{ width: 12, height: 12, objectFit: 'contain', opacity: 0.7, flexShrink: 0 }}
+                            />
+                          )}
+                          {s}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -78,16 +94,17 @@ export default function Projects() {
                     textDecoration: 'none',
                     fontWeight: 600,
                     padding: '6px 14px',
-                    border: `1px solid ${p.accent}33`,
-                    borderRadius: 6,
+                    border: `1px solid ${p.accent}30`,
+                    borderRadius: 7,
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: 4,
-                    transition: 'background 0.2s',
+                    transition: 'background 0.2s, border-color 0.2s',
                     flexShrink: 0,
+                    background: `${p.accent}08`,
                   }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = `${p.accent}15`; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = `${p.accent}18`; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = `${p.accent}08`; }}
                 >
                   View →
                 </a>

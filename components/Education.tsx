@@ -1,3 +1,4 @@
+'use client';
 const courses = ['Machine Learning', 'Databases', 'Data Science', 'Energy Economics', 'Linear Algebra', 'Statistics', 'Discrete Math'];
 
 export default function Education() {
@@ -20,23 +21,36 @@ export default function Education() {
             {/* Left */}
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 6 }}>
-                {/* UT Austin shield placeholder */}
+                {/* UT Austin logo */}
                 <div
                   style={{
-                    width: 36,
-                    height: 36,
-                    borderRadius: 8,
-                    background: 'linear-gradient(135deg, #bf5700, #d4700a)',
+                    width: 40,
+                    height: 40,
+                    borderRadius: 10,
+                    background: 'rgba(191,87,0,0.12)',
+                    border: '1px solid rgba(191,87,0,0.25)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: 14,
-                    fontWeight: 800,
-                    color: '#fff',
+                    overflow: 'hidden',
                     flexShrink: 0,
                   }}
                 >
-                  UT
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="https://logo.clearbit.com/utexas.edu"
+                    alt="UT Austin"
+                    width={28}
+                    height={28}
+                    onError={(e) => {
+                      const el = e.currentTarget as HTMLImageElement;
+                      el.style.display = 'none';
+                      if (el.parentElement) {
+                        el.parentElement.innerHTML = '<span style="font-size:13px;font-weight:800;color:#bf5700">UT</span>';
+                      }
+                    }}
+                    style={{ width: 28, height: 28, objectFit: 'contain' }}
+                  />
                 </div>
                 <div>
                   <div style={{ fontSize: 17, fontWeight: 700, color: 'var(--text)', letterSpacing: '-0.01em' }}>

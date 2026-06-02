@@ -7,7 +7,6 @@ export default function TechStack() {
   return (
     <section id="stack" style={{ padding: '80px 0' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px' }}>
-        {/* Section header */}
         <div style={{ marginBottom: 40 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 6 }}>
             <span className="section-label">Tech Stack</span>
@@ -15,14 +14,15 @@ export default function TechStack() {
             <span
               style={{
                 fontSize: 10,
-                padding: '3px 8px',
-                borderRadius: 4,
-                background: 'rgba(99,102,241,0.1)',
-                border: '1px solid rgba(99,102,241,0.2)',
+                padding: '3px 10px',
+                borderRadius: 20,
+                background: 'rgba(99,102,241,0.08)',
+                border: '1px solid rgba(99,102,241,0.18)',
                 color: 'var(--accent3)',
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase',
                 whiteSpace: 'nowrap',
+                fontWeight: 700,
               }}
             >
               {TECH_STACK.length} tools
@@ -33,40 +33,40 @@ export default function TechStack() {
           </h2>
         </div>
 
-        {/* Grid */}
+        {/* Horizontal pill grid */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(76px, 1fr))',
+            display: 'flex',
+            flexWrap: 'wrap',
             gap: 8,
           }}
         >
           {TECH_STACK.map((item) => (
             <div
               key={item.name}
-              className="card"
+              className="tag"
               style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: 7,
-                padding: '14px 8px',
+                padding: '7px 14px',
+                fontSize: 12,
+                gap: 8,
+                borderRadius: 8,
+                background: 'rgba(255,255,255,0.03)',
+                border: '1px solid var(--border)',
+                color: 'var(--muted2)',
                 cursor: 'default',
               }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`${DEVICON_BASE}/${item.devicon}.svg`}
-                alt={item.label}
-                width={26}
-                height={26}
+                alt=""
+                width={16}
+                height={16}
                 loading="lazy"
-                onError={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = '0.3'; }}
-                style={{ width: 26, height: 26, objectFit: 'contain' }}
+                onError={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = '0'; }}
+                style={{ width: 16, height: 16, objectFit: 'contain', opacity: 0.75, flexShrink: 0 }}
               />
-              <span style={{ fontSize: 9, color: 'var(--muted2)', textAlign: 'center', letterSpacing: '0.03em' }}>
-                {item.label}
-              </span>
+              <span>{item.label}</span>
             </div>
           ))}
         </div>

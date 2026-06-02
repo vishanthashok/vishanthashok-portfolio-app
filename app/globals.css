@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #07070f;
-  --bg2: #0d0d1b;
-  --bg3: #13132a;
-  --border: #1c1c35;
-  --border2: #2a2a50;
-  --text: #e2e2f0;
-  --muted: #5a5a82;
-  --muted2: #9898c0;
-  --accent: #6366f1;
+  --bg:      #060610;
+  --bg2:     #0c0c1e;
+  --bg3:     #111128;
+  --border:  #18183a;
+  --border2: #252550;
+  --text:    #eaeaf8;
+  --muted:   #52527a;
+  --muted2:  #9090b8;
+  --accent:  #6366f1;
   --accent2: #818cf8;
   --accent3: #a5b4fc;
-  --cyan: #22d3ee;
-  --green: #10b981;
-  --amber: #f59e0b;
-  --violet: #a78bfa;
+  --cyan:    #22d3ee;
+  --green:   #10b981;
+  --amber:   #f59e0b;
+  --violet:  #a78bfa;
 }
 
 html {
@@ -30,47 +30,55 @@ body {
   font-size: 15px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  /* subtle dot-grid texture */
+  background-image: radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 ::selection {
-  background: rgba(99, 102, 241, 0.3);
+  background: rgba(99, 102, 241, 0.28);
 }
 
+/* Full-width section separator */
 .section-divider {
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, var(--border2) 20%, var(--border2) 80%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, var(--border2) 15%, var(--border2) 85%, transparent 100%);
 }
 
 .section-label {
   font-size: 10px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
-  font-weight: 600;
+  font-weight: 700;
 }
 
+/* Cards */
 .card {
   background: var(--bg2);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  transition: background 0.2s, border-color 0.2s;
+  border-radius: 12px;
+  transition: background 0.18s, border-color 0.18s, box-shadow 0.18s;
 }
 
 .card:hover {
   background: var(--bg3);
   border-color: var(--border2);
+  box-shadow: 0 0 0 1px rgba(99,102,241,0.06);
 }
 
+/* Gradient headline */
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent2), var(--accent3), var(--violet));
+  background: linear-gradient(135deg, #a5b4fc 0%, #818cf8 40%, #c4b5fd 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+/* Buttons */
 .btn-primary {
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent), #7c3aed);
   color: #fff;
   border-radius: 8px;
   padding: 10px 20px;
@@ -79,17 +87,19 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: background 0.2s, box-shadow 0.2s;
+  transition: opacity 0.2s, box-shadow 0.2s;
   text-decoration: none;
+  border: none;
+  box-shadow: 0 0 0 1px rgba(99,102,241,0.3);
 }
 
 .btn-primary:hover {
-  background: var(--accent2);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+  opacity: 0.9;
+  box-shadow: 0 0 22px rgba(99, 102, 241, 0.35);
 }
 
 .btn-ghost {
-  background: transparent;
+  background: rgba(255,255,255,0.03);
   color: var(--muted2);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -99,31 +109,55 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: border-color 0.2s, color 0.2s;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
   text-decoration: none;
 }
 
 .btn-ghost:hover {
   border-color: var(--border2);
   color: var(--text);
+  background: rgba(255,255,255,0.05);
 }
 
+/* Glow orb */
 .glow-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
+  filter: blur(90px);
   pointer-events: none;
 }
 
+/* Stack tag (with icon) */
 .tag {
   font-size: 11px;
-  padding: 3px 9px;
-  border-radius: 5px;
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  color: var(--accent3);
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(99, 102, 241, 0.07);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  color: var(--muted2);
   font-weight: 500;
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.tag:hover {
+  border-color: rgba(99,102,241,0.3);
+  color: var(--accent3);
+}
+
+/* Company avatar */
+.company-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.06);
 }
