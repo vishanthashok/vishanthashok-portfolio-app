@@ -14,25 +14,24 @@ export default function Icon() {
           width: '100%',
           height: '100%',
           display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          background: '#080A0F',
-          border: '1px solid #1C2030',
+          background: '#FAF9F5',
+          border: '1px solid #E3DECF',
           borderRadius: 7,
         }}
       >
+        <div style={{ fontSize: 15, fontWeight: 700, letterSpacing: -1, color: '#1F1D18' }}>VA</div>
         <div
           style={{
-            fontSize: 15,
-            fontWeight: 700,
-            letterSpacing: -1,
-            backgroundImage: 'linear-gradient(120deg, #6C63FF 30%, #00D4AA 100%)',
-            backgroundClip: 'text',
-            color: 'transparent',
+            width: 16,
+            height: 3,
+            marginTop: 1,
+            borderRadius: 2,
+            background: '#E8CDAD',
           }}
-        >
-          VA
-        </div>
+        />
       </div>
     ),
     { ...size }

@@ -1,9 +1,12 @@
 import type { Metadata, Viewport } from 'next';
-import { Syne, Inter, JetBrains_Mono } from 'next/font/google';
+import { Source_Serif_4, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
-const syne = Syne({ subsets: ['latin'], variable: '--font-syne' });
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const sourceSerif = Source_Serif_4({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  variable: '--font-serif',
+});
 const jetbrains = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains' });
 
 export const metadata: Metadata = {
@@ -21,12 +24,12 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#080A0F',
+  themeColor: '#FAF9F5',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${syne.variable} ${inter.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${sourceSerif.variable} ${jetbrains.variable}`}>
       <body>{children}</body>
     </html>
   );

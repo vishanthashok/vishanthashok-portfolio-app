@@ -14,23 +14,22 @@ export default function AppleIcon() {
           width: '100%',
           height: '100%',
           display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          background: '#080A0F',
+          background: '#FAF9F5',
         }}
       >
+        <div style={{ fontSize: 80, fontWeight: 700, letterSpacing: -4, color: '#1F1D18' }}>VA</div>
         <div
           style={{
-            fontSize: 84,
-            fontWeight: 700,
-            letterSpacing: -5,
-            backgroundImage: 'linear-gradient(120deg, #6C63FF 30%, #00D4AA 100%)',
-            backgroundClip: 'text',
-            color: 'transparent',
+            width: 88,
+            height: 12,
+            marginTop: 4,
+            borderRadius: 8,
+            background: '#E8CDAD',
           }}
-        >
-          VA
-        </div>
+        />
       </div>
     ),
     { ...size }

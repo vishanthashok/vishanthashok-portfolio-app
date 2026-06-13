@@ -11,7 +11,7 @@ export default function Stack() {
           {TECH_STACK.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-accent/25 bg-surface px-4 py-1.5 font-mono text-sm text-fg/90"
+              className="rounded-full border border-edge bg-surface px-4 py-1.5 font-mono text-sm text-fg/85"
             >
               {tech}
             </span>

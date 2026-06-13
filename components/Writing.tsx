@@ -31,11 +31,11 @@ export default async function Writing() {
                 className="group rounded-xl border border-edge bg-surface p-6 transition-colors hover:border-accent/40"
               >
                 {date && <p className="font-mono text-[11px] text-mute">{date}</p>}
-                <h3 className="mt-2 font-display text-lg font-semibold text-fg group-hover:text-white">
+                <h3 className="mt-2 font-display text-lg font-semibold text-fg group-hover:text-accent">
                   {post.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-mute">{post.description}</p>
-                <p className="mt-5 font-mono text-xs text-mint">Read on Substack ↗</p>
+                <p className="mt-5 font-mono text-xs text-accent">Read on Substack ↗</p>
               </a>
             );
           })}
@@ -48,7 +48,7 @@ export default async function Writing() {
           className="mt-6 block rounded-xl border border-accent/25 bg-surface p-6 transition-colors hover:border-accent/50 md:flex md:items-center md:justify-between"
         >
           <div>
-            <p className="font-mono text-[10px] tracking-[0.2em] text-mint">SERIES</p>
+            <p className="font-mono text-[10px] tracking-[0.2em] text-accent">SERIES</p>
             <h3 className="mt-2 font-display text-xl font-semibold text-fg">
               Debt-Fueled Growth Models
             </h3>
@@ -56,7 +56,7 @@ export default async function Writing() {
               A Substack series on leverage-dependent business strategies.
             </p>
           </div>
-          <span className="mt-4 inline-block font-mono text-xs text-mint md:mt-0">
+          <span className="mt-4 inline-block font-mono text-xs text-accent md:mt-0">
             Follow the series ↗
           </span>
         </a>

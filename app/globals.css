@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  /* Deep Space Obsidian palette */
-  --color-bg: #080a0f;
-  --color-surface: #0e1117;
-  --color-edge: #1c2030;
-  --color-accent: #6c63ff;
-  --color-mint: #00d4aa;
-  --color-fg: #f0f2ff;
-  --color-mute: #6b7280;
+  /* Warm Editorial palette — cream paper, ink, terracotta, tan, sage */
+  --color-bg: #faf9f5;
+  --color-surface: #f3f1ea;
+  --color-edge: #e3decf;
+  --color-accent: #a84b2f;
+  --color-tan: #e8cdad;
+  --color-sage: #3f6b45;
+  --color-fg: #1f1d18;
+  --color-mute: #6b665a;
 
-  --font-display: var(--font-syne), sans-serif;
-  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-serif), Georgia, serif;
+  --font-body: var(--font-serif), Georgia, serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
@@ -25,57 +26,45 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* faint dot grid on the paper */
+  background-image: radial-gradient(rgba(31, 29, 24, 0.06) 1px, transparent 1px);
+  background-size: 26px 26px;
 }
 
 ::selection {
-  background: rgba(108, 99, 255, 0.35);
+  background: var(--color-tan);
   color: var(--color-fg);
 }
 
-/* Soft radial glow bleeding from the top-left of the hero */
+/* Soft warm wash bleeding from the top-left of the hero */
 .hero-glow {
   background: radial-gradient(
     ellipse 70% 55% at 18% 0%,
-    rgba(108, 99, 255, 0.08),
+    rgba(200, 116, 84, 0.07),
     transparent 70%
   );
 }
 
-/* Looping gradient shimmer on "Ashok." — indigo → mint → white and back, 4s */
-.shimmer {
-  background-image: linear-gradient(
-    100deg,
-    #6c63ff 0%,
-    #00d4aa 30%,
-    #ffffff 50%,
-    #00d4aa 70%,
-    #6c63ff 100%
-  );
-  background-size: 250% 100%;
-  background-position: 0% 50%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: shimmer 4s ease-in-out infinite;
+/* Signature: thick tan underline bar beneath the italic hero word */
+.underline-accent {
+  position: relative;
+  display: inline-block;
 }
 
-@keyframes shimmer {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+.underline-accent::after {
+  content: '';
+  position: absolute;
+  left: 0.02em;
+  right: 0.06em;
+  bottom: 0.04em;
+  height: 0.08em;
+  border-radius: 999px;
+  background: var(--color-tan);
+  z-index: -1;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .shimmer {
-    animation: none;
-    background-position: 50% 50%;
   }
 }

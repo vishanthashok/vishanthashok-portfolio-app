@@ -22,7 +22,7 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a href="#" className="font-display text-lg font-extrabold tracking-wide text-fg">
+        <a href="#" className="font-display text-xl font-bold text-fg">
           VA
         </a>
 
@@ -41,9 +41,9 @@ export default function Nav() {
 
         <a
           href="#contact"
-          className="flex items-center gap-2 rounded-full border border-mint/20 px-3.5 py-1.5 font-mono text-xs text-mint"
+          className="flex items-center gap-2 rounded-full border border-sage/25 px-3.5 py-1.5 font-mono text-xs text-sage"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-mint" aria-hidden />
+          <span className="h-1.5 w-1.5 rounded-full bg-sage" aria-hidden />
           Open to Roles
         </a>
       </nav>

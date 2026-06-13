@@ -12,14 +12,14 @@ export default function Experience() {
             <div key={entry.company} className="relative pb-12 pl-8 last:pb-0">
               <span
                 aria-hidden
-                className="absolute top-2 -left-[3.5px] h-[7px] w-[7px] rounded-full bg-mint"
+                className="absolute top-2 -left-[3.5px] h-[7px] w-[7px] rounded-full bg-accent"
               />
               <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
                 <h3 className="font-display text-xl font-semibold text-fg">{entry.company}</h3>
                 <p className="font-mono text-xs text-mute">{entry.date}</p>
               </div>
               <p className="mt-1 text-sm text-mute">{entry.role}</p>
-              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-fg/70">
+              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-fg/75">
                 {entry.description}
               </p>
             </div>
